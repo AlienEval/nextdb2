@@ -1,0 +1,9 @@
+name = "prubanext2"
+compatibility_date = "2024-03-20"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "login_db"
+database_id = "dcbcc493-c421-4d0a-ab80-51afa7da61e9"
