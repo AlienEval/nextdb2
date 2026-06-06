@@ -21,7 +21,15 @@ export default function AuthPage() {
         body: JSON.stringify({ action: isLogin ? "login" : "register", username, password }),
       });
 
-      const data = await res.json();
+      let data;
+      const text = await res.text();
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        console.error("Server returned non-JSON:", text);
+        setMessage({ text: `Server Error (Code ${res.status}): Please check console.`, type: "error" });
+        return;
+      }
 
       if (!res.ok) {
         setMessage({ text: data.error || "An error occurred", type: "error" });
@@ -36,8 +44,9 @@ export default function AuthPage() {
           }, 2000);
         }
       }
-    } catch (error) {
-      setMessage({ text: "Failed to connect to the server.", type: "error" });
+    } catch (error: any) {
+      console.error(error);
+      setMessage({ text: "Network error: " + error.message, type: "error" });
     } finally {
       setLoading(false);
     }
