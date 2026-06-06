@@ -5,5 +5,5 @@ pages_build_output_dir = ".vercel/output/static"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "login_db"
-database_id = "dcbcc493-c421-4d0a-ab80-51afa7da61e9"
+database_name = "nextdb"
+database_id = "b0b83ce1-e62d-4b0e-ac23-cde0b9904ef1"
